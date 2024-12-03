@@ -7,8 +7,8 @@ where
     P: AsRef<Path>,
 {
     let input = read_to_string(input_file).unwrap();
-    Regex::new(r"mul\(\d{1,3},\d{1,3}\)")
-        .unwrap()
+    let solving_regex = Regex::new(r"mul\(\d{1,3},\d{1,3}\)").unwrap();
+    solving_regex
         .find_iter(&input)
         .map(|mul| {
             mul.as_str()
