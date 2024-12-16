@@ -1,6 +1,10 @@
 pub mod part_one;
 pub mod part_two;
 
+#[cfg(windows)]
+const LINE_ENDING: &'static str = "\r\n";
+#[cfg(not(windows))]
+const LINE_ENDING: &'static str = "\n";
 #[cfg(test)]
 mod tests {
     #[test]

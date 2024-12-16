@@ -1,3 +1,8 @@
 [workspace]
 members = ["day*"]
 resolver = "2"
+
+[profile.release]
+strip = "symbols"
+lto = "fat"
+codegen-units = 1

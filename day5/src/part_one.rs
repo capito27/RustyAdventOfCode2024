@@ -1,3 +1,4 @@
+use crate::LINE_ENDING;
 use std::fs::read_to_string;
 use std::path::Path;
 
@@ -6,7 +7,9 @@ where
     P: AsRef<Path>,
 {
     let input = read_to_string(input_file).unwrap();
-    let (rules, updates) = input.split_once("\n\n").unwrap();
+    let (rules, updates) = input
+        .split_once(&format!("{LINE_ENDING}{LINE_ENDING}"))
+        .unwrap();
 
     let rules = rules
         .lines()
